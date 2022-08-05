@@ -5,3 +5,16 @@ a {
 a :hover {
   color: black;
 }
+
+th {
+  text-transform: uppercase;
+}
+ 
+nav {
+  background-color: lightslategray;
+  text-transform: uppercase;
+}
+
+.headder {
+  background-color: lightseagreen;
+}
