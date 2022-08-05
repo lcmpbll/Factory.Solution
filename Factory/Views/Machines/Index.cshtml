@@ -8,7 +8,6 @@
     <h1>Factory Control</h1>
     <h2>Machines</h2>
   </div>
-
   <nav class="navbar sticky-top navbar-expand-sm">
     <div class="container">
       <p class="btn">@Html.ActionLink("Add Machine", "Create", "Machines")</p>
@@ -31,17 +30,23 @@
       <th>Retire Machine</th>
       <th></th>
     </tr>
-    <td>
+    
       @foreach (Machine machine in Model)
       {
-        @Html.ActionLink($"{machine.Name}", "Details", new { id = machine.MachineId })
+        <tr>
+          <td>
+            @Html.ActionLink($"{machine.Name}", "Details", new { id = machine.MachineId })
+          </td>
+          <td>
+            @(machine.Broken)  
+          </td>
+          <td>
+            @(machine.UnderRepair)
+          </td> 
+          <td>
+            <button class="btn btn-danger">@Html.ActionLink("Remove From Use", "Delete", new { id = machine.MachineId })</button>
+          </td>
+        </tr>
       }
-    </td>
-    <td>
-      @foreach (Machine machine in Model)
-      {
-        <button class="btn btn-danger">@Html.ActionLink("Remove From Use", "Delete", new { id = machine.MachineId })</button>
-      }
-    </td>
   </table>
 </div>
