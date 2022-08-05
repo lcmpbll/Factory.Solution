@@ -69,5 +69,16 @@ namespace Factory.Controllers
       }
       return RedirectToAction("Details");
     }
+    
+    public ActionResult Details(int id)
+    {
+      ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "Name");
+      var thisEngineer = _db.Engineers
+        .Include(engineer => engineer.JoinEntities)
+        .ThenInclude(join => join.Machine)
+        .FirstOrDefault(engineer => engineer.EngineerId == id);
+      
+      return View(thisEngineer);
+    }
   }
 }

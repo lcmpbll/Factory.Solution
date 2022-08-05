@@ -1,0 +1,50 @@
+@{
+  Layout ="_Layout";
+}
+@model Factory.Models.Engineer
+
+<div class="jumbotron text-center">
+  <h1>Factory Control</h1>
+  <h2>Engineer: @Html.DisplayFor(model => model.Name)</h2>
+</div>
+
+<nav class="navbar sticky-top navbar-expand-sm">
+  <div class="container">
+    <p class="btn">@Html.ActionLink("View Engineers", "Index", "Engineers")</p>
+    <p class="btn">@Html.ActionLink("View Machines", "Index", "Machines")</p>
+    <p class="btn">@Html.ActionLink("Home", "Index", "Home")</p>
+  </div>
+</nav>
+
+
+
+<div class="container">
+  @if(@Model.JoinEntities.Count == 0)
+  {
+    <p>This Engineer is unassigned.</p>
+  }
+  else
+  {
+    
+    <table class="table">
+    <tr>
+      <th>Machines</th>
+      <th>Remove Machine</th>
+    </tr>
+    <td>
+      @foreach (var join in Model.JoinEntities)
+      {
+        @Html.ActionLink(@join.Machine.Name, "Details", "Machine", new { id = Machine.MachineId })
+      }
+    </td>
+    @* <td>
+      @foreach (Engineer engineer in Model)
+      {
+        <button class="btn btn-danger">@Html.ActionLink("Remove Machine", "Delete", new { id = engineer.EngineerId })</button>
+      }
+    </td> *@
+  </table>
+      
+    
+  }
+</div>
