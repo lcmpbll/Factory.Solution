@@ -7,19 +7,32 @@ using System.Linq;
 
 namespace Factory.Controllers
 {
-  public class ClassOneController : Controller
+  public class EngineersController : Controller
   {
     private readonly FactoryContext _db;
 
-    public ClassOneController(FactoryContext db)
+    public EngineersController(FactoryContext db)
     {
       _db = db;
     }
 
     public ActionResult Index()
     {
-      List<ClassOne> model = _db.ClassOnes.Include(classOne => classOne.ClassTwo).ToList();
-      return View(model);
+      
+      return View(_db.Engineers.ToList());
+    }
+    
+    public ActionResult Create()
+    {
+      return View();
+    }
+    
+    [HttpPost]
+    public ActionResult Create(Engineer engineer)
+    {
+      _db.Engineers.Add(engineer);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
     }
   }
 }
