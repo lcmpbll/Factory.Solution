@@ -18,15 +18,15 @@ namespace Factory
       Configuration = builder.Build();
     }
 
-    public IConfigurationRoot Configuration { get; set; }
+
+    public IConfigurationRoot Configuration { get; }
 
     public void ConfigureServices(IServiceCollection services)
     {
       services.AddMvc();
-
       services.AddEntityFrameworkMySql()
-        .AddDbContext<FactoryContext>(options => options
-        .UseMySql(Configuration["ConnectionStrings:DefaultConnection"], ServerVersion.AutoDetect(Configuration["ConnectionStrings:DefaultConnection"])));
+      .AddDbContext<FactoryContext>(options => options
+      .UseMySql(Configuration["ConnectionStrings:DefaultConnection"], ServerVersion.AutoDetect(Configuration["ConnectionStrings:DefaultConnection"])));
     }
 
     public void Configure(IApplicationBuilder app)
