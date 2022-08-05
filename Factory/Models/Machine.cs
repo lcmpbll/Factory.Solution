@@ -6,7 +6,7 @@ namespace Factory.Models
   {
     public Machine()
     {
-      this.JoinEntites = new HashSet<EngineerMachine>();
+      this.JoinEntities = new HashSet<EngineerMachine>();
     }
 
     public int MachineId { get; set; }
@@ -15,6 +15,6 @@ namespace Factory.Models
     public bool Broken { get { return _broken; } set { _broken = value; } }
     private bool _underRepair = false; 
     public bool UnderRepair { get { return _underRepair; } set { _underRepair = value; } }
-    public virtual ICollection<EngineerMachine> JoinEntites { get; set; }
+    public virtual ICollection<EngineerMachine> JoinEntities { get; set; }
   }
 }
