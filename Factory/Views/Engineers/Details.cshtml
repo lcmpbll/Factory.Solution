@@ -19,9 +19,21 @@
 
 
 <div class="container">
+  
+    @using (Html.BeginForm())
+  {
+    @Html.HiddenFor(model => model.EngineerId)
+    
+    @Html.Label("Add new machine assignment")
+    @Html.DropDownList("MachineId")
+    <br/>
+    <button type="submit">Add Machine Assignment</button>
+  }
+  <hr />
+  
   @if(@Model.JoinEntities.Count == 0)
   {
-    <p>This Engineer is unassigned.</p>
+    <p>This Engineer is currently unassigned.</p>
   }
   else
   {
@@ -34,15 +46,15 @@
     <td>
       @foreach (var join in Model.JoinEntities)
       {
-        @Html.ActionLink(@join.Machine.Name, "Details", "Machine", new { id = Machine.MachineId })
+        @Html.ActionLink(@join.Machine.Name, "Details", "Machine", new { id = join.Machine.MachineId })
       }
     </td>
-    @* <td>
-      @foreach (Engineer engineer in Model)
+    <td>
+      @foreach (var join in Model.JoinEntities)
       {
-        <button class="btn btn-danger">@Html.ActionLink("Remove Machine", "Delete", new { id = engineer.EngineerId })</button>
+        <button class="btn btn-danger">@Html.ActionLink("Remove Machine", "Delete", new { id = join.Machine.MachineId })</button>
       }
-    </td> *@
+    </td>
   </table>
       
     
