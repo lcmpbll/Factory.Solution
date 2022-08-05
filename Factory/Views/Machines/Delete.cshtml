@@ -1,0 +1,26 @@
+@{
+  Layout ="_Layout";
+}
+@model Factory.Models.Machine
+
+<div class="headder">
+  <div class="jumbotron text-center">
+    <h1>Factory Control</h1>
+    <h2> Retire @Html.DisplayFor(model => model.Name)</h2>
+  </div>
+
+  <nav class="navbar sticky-top navbar-expand-sm">
+    <div class="container">
+      <p class="btn">@Html.ActionLink("View Machines", "Index", "Machines")</p>
+      <p class="btn">@Html.ActionLink("View Engineers", "Index", "Engineers")</p>
+      <p class="btn">@Html.ActionLink("Home", "Index", "Home")</p>
+    </div>
+  </nav>
+</div>
+<br/>
+<div class="container">
+  @using (Html.BeginForm())
+  {
+    <button type="submit" class="btn btn-danger only">Retire Confirmed</button>
+  }
+</div>
