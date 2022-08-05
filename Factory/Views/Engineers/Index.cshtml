@@ -26,15 +26,14 @@
     <td>
       @foreach (Engineer engineer in Model)
       {
-        @Html.ActionLink($"{engineer.Name}", "Details", new { id = engineer.EngineerId })
+        <tr>
+            <td>
+              @Html.ActionLink($"{engineer.Name}", "Details", new { id = engineer.EngineerId })
+            </td>
+            <td>
+              <button class="btn btn-danger">@Html.ActionLink("Remove From Roll", "Delete", new { id = engineer.EngineerId })</button>
+            </td>
+        </tr>
       }
-    </td>
-    <td>
-      @foreach (Engineer engineer in Model)
-      {
-        <button class="btn btn-danger">@Html.ActionLink("Remove From Roll", "Delete", new { id = engineer.EngineerId })</button>
-      }
-    </td>
-  </table>
-  
+  </table> 
 </div>
