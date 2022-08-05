@@ -18,3 +18,12 @@ nav {
 .headder {
   background-color: lightseagreen;
 }
+
+label {
+  padding: 3px;
+}
+
+.only {
+  float: center;
+  
+}
