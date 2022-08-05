@@ -1,6 +1,7 @@
 @{
   Layout="_Layout";
 }
+@model Factory.Models.Machine
 <div class="headder">
   <div class="jumbotron text-center">
     <h1>Factory Control</h1>
@@ -15,7 +16,7 @@
 </div>
 <br />
 <div class="container">
-  @using (Hrml.BeginForm())
+  @using (Html.BeginForm())
   {
     @Html.HiddenFor(model => model.MachineId)
     
