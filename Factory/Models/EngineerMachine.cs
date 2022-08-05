@@ -1,11 +1,11 @@
 namespace Factory.Models
 {
-  public class ClassOneClassTwo
+  public class EngineerMachine
   {
-    public int ClassOneClassTwoId { get; set; }
-    public int ClassOneId { get; set; }
-    public int ClassTwoId { get; set; }
-    public virtual ClassOne ClassOne { get; set; }
-    public virtual ClassTwo ClassTwo { get; set; }
+    public int EngineerMachineId { get; set; }
+    public int EngineerId { get; set; }
+    public int MachineId { get; set; }
+    public virtual Engineer Engineer { get; set; }
+    public virtual Machine Machine { get; set; }
   }
 }
