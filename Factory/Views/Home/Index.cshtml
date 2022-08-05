@@ -1,13 +1,16 @@
 @{
   Layout="_Layout";
 }
-<div class="jumbotron text-center">
-  <h1>Factory Control</h1>
-</div>
-
-<nav class="navbar sticky-top navbar-expand-sm">
-  <div class="container"></div>
-    <p class="btn">@Html.ActionLink("View Engineers", "Index", "Engineers")</p>
-    <p class="btn">@Html.ActionLink("View Machines", "Index", "Machines")</p>
+<div class="headder">
+  <div class="jumbotron text-center">
+    <h1>Factory Control</h1>
   </div>
-</nav>
+
+
+  <nav class="navbar sticky-top navbar-expand-sm">
+    <div class="container"></div>
+      <p class="btn">@Html.ActionLink("View Engineers", "Index", "Engineers")</p>
+      <p class="btn">@Html.ActionLink("View Machines", "Index", "Machines")</p>
+    </div>
+  </nav>
+</div>
