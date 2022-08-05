@@ -2,61 +2,49 @@
   Layout ="_Layout";
 }
 @model Factory.Models.Engineer
-
-<div class="jumbotron text-center">
-  <h1>Factory Control</h1>
-  <h2>Engineer: @Html.DisplayFor(model => model.Name)</h2>
-</div>
-
-<nav class="navbar sticky-top navbar-expand-sm">
-  <div class="container">
-    <p class="btn">@Html.ActionLink("View Engineers", "Index", "Engineers")</p>
-    <p class="btn">@Html.ActionLink("View Machines", "Index", "Machines")</p>
-    <p class="btn">@Html.ActionLink("Home", "Index", "Home")</p>
+  <div class="headder">
+  <div class="jumbotron text-center">
+    <h1>Factory Control</h1>
+    <h2>Engineer: @Html.DisplayFor(model => model.Name)</h2>
   </div>
-</nav>
 
-
-
+  <nav class="navbar sticky-top navbar-expand-sm">
+    <div class="container">
+      <p class="btn">@Html.ActionLink("Add Assignment", "AddMachine", "Engineers", new { id = Model.EngineerId })</p>
+      <p class="btn">@Html.ActionLink("View Engineers", "Index", "Engineers")</p>
+      <p class="btn">@Html.ActionLink("View Machines", "Index", "Machines")</p>
+      <p class="btn">@Html.ActionLink("Home", "Index", "Home")</p>
+    </div>
+  </nav>
+</div>
+<br />
 <div class="container">
-  
-    @using (Html.BeginForm())
-  {
-    @Html.HiddenFor(model => model.EngineerId)
-    
-    @Html.Label("Add new machine assignment  ")
-    @Html.DropDownList("MachineId")
-    <br/>
-    <button type="submit">Add Machine Assignment</button>
-  }
-  <hr />
-  
   @if(@Model.JoinEntities.Count == 0)
   {
     <p>This Engineer is currently unassigned.</p>
   }
   else
   {
-    
     <table class="table">
-    <tr>
-      <th>Machines</th>
-      <th>Remove Machine</th>
-    </tr>
-    <td>
+      <tr>
+        <th>Machines</th>
+        <th>Remove Machine</th>
+      </tr>
       @foreach (var join in Model.JoinEntities)
       {
-        @Html.ActionLink(@join.Machine.Name, "Details", "Machine", new { id = join.Machine.MachineId })
+        <tr>
+          <td>
+            @Html.ActionLink(@join.Machine.Name, "Details", "Machine", new { id = join.Machine.MachineId })
+          </td>
+          <td>
+            @using (Html.BeginForm("DeleteMachine", "Engineers"))
+            {
+              @Html.Hidden("joinId", @join.EngineerMachineId)
+              <button type="submit" class="btn btn-danger">@Html.ActionLink("Remove Machine", "Delete", new { id = join.Machine.MachineId })</button>
+            }
+          </td>
+        </tr>
       }
-    </td>
-    <td>
-      @foreach (var join in Model.JoinEntities)
-      {
-        <button class="btn btn-danger">@Html.ActionLink("Remove Machine", "Delete", new { id = join.Machine.MachineId })</button>
-      }
-    </td>
-  </table>
-      
-    
+    </table>
   }
 </div>
