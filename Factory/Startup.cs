@@ -4,9 +4,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using ProjectName.Models;
+using Factory.Models;
 
-namespace ProjectName
+namespace Factory
 {
   public class Startup
   {
