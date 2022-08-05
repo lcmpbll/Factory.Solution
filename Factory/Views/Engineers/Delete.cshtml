@@ -1,0 +1,22 @@
+@{
+  Layout = "_Layout";
+}
+@model Factory.Models.Engineer
+
+<div class="jumbotron text-center">
+  <h1>Factory Control</h1>
+  <h2>Remove @Html.DisplayFor(model => model.Name)?</h2>
+</div>
+<nav class="navbar sticky-top navbar-expand-sm">
+  <div class="container">
+    <p class="btn">@Html.ActionLink("Add Engineers", "Create", "Engineers")</p>
+    <p class="btn">@Html.ActionLink("View Machines", "Index", "Machines")</p>
+    <p class="btn">@Html.ActionLink("Home", "Index", "Home")</p>
+  </div>
+</nav>
+<div class="container">
+  @using (Html.BeginForm())
+  {
+    <button type="submit">Remove</button>
+  }
+</div>
