@@ -1,16 +1,48 @@
 @{
   Layout="_Layout";
 }
+@using Factory.Models
 <div class="headder">
   <div class="jumbotron text-center">
     <h1>Factory Control</h1>
   </div>
-
-
   <nav class="navbar sticky-top navbar-expand-sm">
-    <div class="container"></div>
+    <div class="container">
       <p class="btn">@Html.ActionLink("View Engineers", "Index", "Engineers")</p>
       <p class="btn">@Html.ActionLink("View Machines", "Index", "Machines")</p>
     </div>
   </nav>
+</div>
+<br />
+<div class="container">
+  <h1>Engineers</h1>
+  <table class="table">
+    <tr>
+      <th>Name</th>
+    
+    </tr>
+      @foreach (Engineer engineer in ViewBag.Engineers)
+      {
+        <tr>
+            <td>
+              @engineer.Name
+            </td>
+        </tr>
+      }
+  </table> 
+  <h1>Machines</h1>
+    <table class="table">
+    <tr>
+      <th>Name</th>
+    
+    </tr>
+      @foreach (Machine machine in ViewBag.Machines)
+      {
+        <tr>
+            <td>
+              @machine.Name
+            </td>
+        </tr>
+      }
+  </table> 
 </div>
