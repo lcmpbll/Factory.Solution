@@ -1,0 +1,47 @@
+@{
+  Layout ="_Layout";
+}
+@using Factory.Models;
+@model List<Factory.Models.Machine>
+<div class="headder">
+  <div class="jumbotron text-center">
+    <h1>Factory Control</h1>
+    <h2>Machines</h2>
+  </div>
+
+  <nav class="navbar sticky-top navbar-expand-sm">
+    <div class="container">
+      <p class="btn">@Html.ActionLink("Add Machine", "Create", "Machines")</p>
+      <p class="btn">@Html.ActionLink("View Engineers", "Index", "Engineers")</p>
+      <p class="btn">@Html.ActionLink("Home", "Index", "Home")</p>
+    </div>
+  </nav>
+</div>
+<br />
+<div class="container">
+  @if (@Model.Count == 0)
+  {
+    <h4>Machines have not been added yet.</h4>
+  }
+  <table class="table">
+    <tr>
+      <th>Name</th>
+      <th>Repair Needed</th>
+      <th>Repair in progress</th>
+      <th>Retire Machine</th>
+      <th></th>
+    </tr>
+    <td>
+      @foreach (Machine machine in Model)
+      {
+        @Html.ActionLink($"{machine.Name}", "Details", new { id = machine.MachineId })
+      }
+    </td>
+    <td>
+      @foreach (Machine machine in Model)
+      {
+        <button class="btn btn-danger">@Html.ActionLink("Remove From Use", "Delete", new { id = machine.MachineId })</button>
+      }
+    </td>
+  </table>
+</div>
