@@ -1,10 +1,10 @@
-# _Project Name_
+# _Dr. Sillystringz Factory_
 
 #### By _Liam Campbell_
 
 
 
-#### _Description_
+#### _A Factory Maintenace WebSite_
 
 ## Table of Contents
 
@@ -27,7 +27,7 @@
 ---
 ## Description
 
-
+_A web page with access to a database that stores information about machines and engineers that maintain and work on the machines. A user can add new Engineers and Machines, then assign the engineers to work on the machines. The machines can be denoted as needing work, and then while repairs are happening they can be in for repair. When The repairs have finished they can be made functional agian._
 
 ---
 ## Setup and Installation Requirements
@@ -78,18 +78,6 @@ Run `$ dotnet run` in the console
 </details>
 <br>
 
-<details>
-<summary><strong>For Testing</strong></summary>
-Navigate to  
-    <pre>Factory.Solution
-    ├── Factory
-    └── <strong>Factory.Tests</strong></pre>
-
-Run `$ dotnet test` in the console
-
-</details>
-<br>
-
 This program was built using *`Microsoft .NET SDK 5.0.401`*, and may not be compatible with other versions. Your milage may vary.
 
 ## Known Bugs
@@ -100,4 +88,4 @@ This program was built using *`Microsoft .NET SDK 5.0.401`*, and may not be comp
 
 _Feel free to reach out via [Github](github.com.lcmpbll) to provide feedback on this project or to view my other projects._
 
-[Copyright](/LICENSE) (c) _07-28-2022_ _Liam Campbell_
+[Copyright](/LICENSE) (c) _08-4-2022_ _Liam Campbell_
