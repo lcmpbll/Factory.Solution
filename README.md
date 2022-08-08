@@ -73,7 +73,7 @@ Navigate to:
    └── <strong>Factory</strong></pre>
 
 Run `$ dotnet restore` in the console.<br>
-Run `$ dotnet database update` in the console.<br>
+Run `$ dotnet ef database update` in the console.<br>
 Run `$ dotnet run` in the console
 </details>
 <br>
